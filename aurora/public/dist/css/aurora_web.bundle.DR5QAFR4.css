@@ -1,0 +1,560 @@
+@charset "UTF-8";
+
+/* ../../../../../tmp/tmp-1508-Vgtc6miH7IFo/aurora/aurora/public/scss/aurora_web.bundle.css */
+:root {
+  --aurora-h: 256;
+  --aurora-s: 84%;
+  --aurora-l: 60%;
+  --aurora-200: hsl(var(--aurora-h) var(--aurora-s) 88%);
+  --aurora-300: hsl(var(--aurora-h) var(--aurora-s) 80%);
+  --aurora-400: hsl(var(--aurora-h) var(--aurora-s) 70%);
+  --aurora-500: hsl(var(--aurora-h) var(--aurora-s) var(--aurora-l));
+  --aurora-600: hsl(var(--aurora-h) var(--aurora-s) calc(var(--aurora-l) - 8%));
+  --aurora-700: hsl(var(--aurora-h) var(--aurora-s) calc(var(--aurora-l) - 16%));
+  --aurora-alt-h: calc(var(--aurora-h) + 30);
+  --aurora-alt: hsl(var(--aurora-alt-h) 80% 62%);
+  --aurora-soft: hsl(var(--aurora-h) var(--aurora-s) var(--aurora-l) / 0.12);
+  --aurora-softer: hsl(var(--aurora-h) var(--aurora-s) var(--aurora-l) / 0.06);
+  --aurora-ring: hsl(var(--aurora-h) var(--aurora-s) var(--aurora-l) / 0.22);
+  --aurora-glow: hsl(var(--aurora-h) var(--aurora-s) var(--aurora-l) / 0.42);
+  --aurora-gradient: linear-gradient(135deg, var(--aurora-500) 0%, var(--aurora-alt) 100%);
+  --aurora-shadow-color: 232 20% 40%;
+  --aurora-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --aurora-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --aurora-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --aurora-login-surface: #ffffff;
+  --aurora-login-canvas: #f6f7fb;
+  --aurora-login-ink: hsl(var(--aurora-h) 16% 16%);
+  --aurora-login-muted: hsl(var(--aurora-h) 10% 46%);
+  --aurora-login-line: hsl(var(--aurora-h) 18% 90%);
+}
+html[data-aurora-gradients="0"] {
+  --aurora-gradient: linear-gradient(var(--aurora-500), var(--aurora-500));
+}
+[data-theme=dark] {
+  --aurora-l: 66%;
+  --aurora-shadow-color: var(--aurora-h) 60% 3%;
+  --aurora-login-surface: hsl(var(--aurora-h) 18% 12%);
+  --aurora-login-canvas: hsl(var(--aurora-h) 22% 8%);
+  --aurora-login-ink: hsl(var(--aurora-h) 14% 92%);
+  --aurora-login-muted: hsl(var(--aurora-h) 10% 62%);
+  --aurora-login-line: hsl(var(--aurora-h) 14% 22%);
+}
+html body {
+  background-color: var(--aurora-login-canvas);
+  background-image: radial-gradient(120vmax 90vmax at 8% -14%, hsl(var(--aurora-h) var(--aurora-s) var(--aurora-l)/0.16), transparent 62%), radial-gradient(100vmax 80vmax at 100% 112%, hsl(var(--aurora-alt-h), 70%, 60%, 0.13), transparent 60%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: var(--aurora-login-ink);
+}
+html body .page-content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0;
+  min-height: 100vh;
+}
+html body .navbar {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+section.for-login,
+section.for-email-login,
+section.for-forgot,
+section.for-login-with-email-link,
+section.for-signup,
+section.for-reset-password {
+}
+section.for-login .page-card,
+section.for-email-login .page-card,
+section.for-forgot .page-card,
+section.for-login-with-email-link .page-card,
+section.for-signup .page-card,
+section.for-reset-password .page-card {
+  max-width: 408px;
+  padding: 34px 32px 30px;
+  gap: 22px;
+  background: var(--aurora-login-surface);
+  border: 1px solid var(--aurora-login-line);
+  border-radius: 20px;
+  box-shadow:
+    0 1px 2px hsl(var(--aurora-shadow-color)/0.06),
+    0 12px 28px -12px hsl(var(--aurora-shadow-color)/0.22),
+    0 40px 80px -32px hsl(var(--aurora-shadow-color)/0.28);
+  animation: aurora-login-in 520ms var(--aurora-ease-out) backwards;
+}
+section.for-login .page-card,
+section.for-email-login .page-card,
+section.for-forgot .page-card,
+section.for-login-with-email-link .page-card,
+section.for-signup .page-card,
+section.for-reset-password .page-card {
+  position: relative;
+  overflow: hidden;
+}
+section.for-login .page-card::before,
+section.for-email-login .page-card::before,
+section.for-forgot .page-card::before,
+section.for-login-with-email-link .page-card::before,
+section.for-signup .page-card::before,
+section.for-reset-password .page-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: var(--aurora-gradient);
+}
+section.for-login .page-card-head,
+section.for-email-login .page-card-head,
+section.for-forgot .page-card-head,
+section.for-login-with-email-link .page-card-head,
+section.for-signup .page-card-head,
+section.for-reset-password .page-card-head {
+  gap: 18px;
+}
+section.for-login .page-card-head img.app-logo,
+section.for-email-login .page-card-head img.app-logo,
+section.for-forgot .page-card-head img.app-logo,
+section.for-login-with-email-link .page-card-head img.app-logo,
+section.for-signup .page-card-head img.app-logo,
+section.for-reset-password .page-card-head img.app-logo {
+  max-height: 40px;
+  padding: 7px;
+  border-radius: 12px;
+  background: var(--aurora-soft);
+  box-shadow: inset 0 0 0 1px var(--aurora-ring);
+  box-sizing: content-box;
+}
+section.for-login .page-card-head h4,
+section.for-email-login .page-card-head h4,
+section.for-forgot .page-card-head h4,
+section.for-login-with-email-link .page-card-head h4,
+section.for-signup .page-card-head h4,
+section.for-reset-password .page-card-head h4 {
+  font-size: 26px;
+  letter-spacing: -0.02em;
+  color: var(--aurora-login-ink);
+}
+section.for-login .page-card-head .page-card-subtitle,
+section.for-email-login .page-card-head .page-card-subtitle,
+section.for-forgot .page-card-head .page-card-subtitle,
+section.for-login-with-email-link .page-card-head .page-card-subtitle,
+section.for-signup .page-card-head .page-card-subtitle,
+section.for-reset-password .page-card-head .page-card-subtitle {
+  color: var(--aurora-login-muted);
+  line-height: 1.5;
+}
+section.for-login .page-card .page-card-body .form-label,
+section.for-email-login .page-card .page-card-body .form-label,
+section.for-forgot .page-card .page-card-body .form-label,
+section.for-login-with-email-link .page-card .page-card-body .form-label,
+section.for-signup .page-card .page-card-body .form-label,
+section.for-reset-password .page-card .page-card-body .form-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--aurora-login-muted);
+}
+section.for-login .page-card .page-card-body input[type=text],
+section.for-login .page-card .page-card-body input[type=email],
+section.for-login .page-card .page-card-body input[type=password],
+section.for-email-login .page-card .page-card-body input[type=text],
+section.for-email-login .page-card .page-card-body input[type=email],
+section.for-email-login .page-card .page-card-body input[type=password],
+section.for-forgot .page-card .page-card-body input[type=text],
+section.for-forgot .page-card .page-card-body input[type=email],
+section.for-forgot .page-card .page-card-body input[type=password],
+section.for-login-with-email-link .page-card .page-card-body input[type=text],
+section.for-login-with-email-link .page-card .page-card-body input[type=email],
+section.for-login-with-email-link .page-card .page-card-body input[type=password],
+section.for-signup .page-card .page-card-body input[type=text],
+section.for-signup .page-card .page-card-body input[type=email],
+section.for-signup .page-card .page-card-body input[type=password],
+section.for-reset-password .page-card .page-card-body input[type=text],
+section.for-reset-password .page-card .page-card-body input[type=email],
+section.for-reset-password .page-card .page-card-body input[type=password] {
+  height: 42px;
+  width: 100%;
+  padding: 10px 12px 10px 40px;
+  border: none;
+  border-radius: 11px;
+  background-color: var(--aurora-login-canvas);
+  color: var(--aurora-login-ink);
+  box-shadow: inset 0 0 0 1px var(--aurora-login-line);
+  transition: box-shadow 200ms var(--aurora-ease), background-color 200ms var(--aurora-ease);
+}
+section.for-login .page-card .page-card-body input:hover:not(:focus),
+section.for-email-login .page-card .page-card-body input:hover:not(:focus),
+section.for-forgot .page-card .page-card-body input:hover:not(:focus),
+section.for-login-with-email-link .page-card .page-card-body input:hover:not(:focus),
+section.for-signup .page-card .page-card-body input:hover:not(:focus),
+section.for-reset-password .page-card .page-card-body input:hover:not(:focus) {
+  box-shadow: inset 0 0 0 1px var(--aurora-300);
+}
+section.for-login .page-card .page-card-body input:focus,
+section.for-email-login .page-card .page-card-body input:focus,
+section.for-forgot .page-card .page-card-body input:focus,
+section.for-login-with-email-link .page-card .page-card-body input:focus,
+section.for-signup .page-card .page-card-body input:focus,
+section.for-reset-password .page-card .page-card-body input:focus {
+  outline: none;
+  background-color: var(--aurora-login-surface);
+  box-shadow: inset 0 0 0 1px var(--aurora-500), 0 0 0 3px var(--aurora-ring);
+}
+section.for-login .page-card .page-card-body .field-icon,
+section.for-login .page-card .page-card-body .toggle-password,
+section.for-email-login .page-card .page-card-body .field-icon,
+section.for-email-login .page-card .page-card-body .toggle-password,
+section.for-forgot .page-card .page-card-body .field-icon,
+section.for-forgot .page-card .page-card-body .toggle-password,
+section.for-login-with-email-link .page-card .page-card-body .field-icon,
+section.for-login-with-email-link .page-card .page-card-body .toggle-password,
+section.for-signup .page-card .page-card-body .field-icon,
+section.for-signup .page-card .page-card-body .toggle-password,
+section.for-reset-password .page-card .page-card-body .field-icon,
+section.for-reset-password .page-card .page-card-body .toggle-password {
+  fill: var(--aurora-login-muted);
+  transition: fill 200ms var(--aurora-ease);
+}
+section.for-login .page-card .page-card-body .email-field:focus-within .field-icon,
+section.for-login .page-card .page-card-body .password-field:focus-within .field-icon,
+section.for-email-login .page-card .page-card-body .email-field:focus-within .field-icon,
+section.for-email-login .page-card .page-card-body .password-field:focus-within .field-icon,
+section.for-forgot .page-card .page-card-body .email-field:focus-within .field-icon,
+section.for-forgot .page-card .page-card-body .password-field:focus-within .field-icon,
+section.for-login-with-email-link .page-card .page-card-body .email-field:focus-within .field-icon,
+section.for-login-with-email-link .page-card .page-card-body .password-field:focus-within .field-icon,
+section.for-signup .page-card .page-card-body .email-field:focus-within .field-icon,
+section.for-signup .page-card .page-card-body .password-field:focus-within .field-icon,
+section.for-reset-password .page-card .page-card-body .email-field:focus-within .field-icon,
+section.for-reset-password .page-card .page-card-body .password-field:focus-within .field-icon {
+  fill: var(--aurora-500);
+}
+section.for-login .page-card .page-card-body .field-icon,
+section.for-email-login .page-card .page-card-body .field-icon,
+section.for-forgot .page-card .page-card-body .field-icon,
+section.for-login-with-email-link .page-card .page-card-body .field-icon,
+section.for-signup .page-card .page-card-body .field-icon,
+section.for-reset-password .page-card .page-card-body .field-icon {
+  left: 14px;
+}
+section.for-login .page-card .page-card-body .password-field .toggle-password,
+section.for-email-login .page-card .page-card-body .password-field .toggle-password,
+section.for-forgot .page-card .page-card-body .password-field .toggle-password,
+section.for-login-with-email-link .page-card .page-card-body .password-field .toggle-password,
+section.for-signup .page-card .page-card-body .password-field .toggle-password,
+section.for-reset-password .page-card .page-card-body .password-field .toggle-password {
+  right: 13px;
+}
+section.for-login .page-card .page-card-body .password-field .toggle-password:hover,
+section.for-email-login .page-card .page-card-body .password-field .toggle-password:hover,
+section.for-forgot .page-card .page-card-body .password-field .toggle-password:hover,
+section.for-login-with-email-link .page-card .page-card-body .password-field .toggle-password:hover,
+section.for-signup .page-card .page-card-body .password-field .toggle-password:hover,
+section.for-reset-password .page-card .page-card-body .password-field .toggle-password:hover {
+  fill: var(--aurora-600);
+}
+section.for-login .page-card .page-card-body .login-error-banner,
+section.for-login .page-card .page-card-body .login-success-banner,
+section.for-email-login .page-card .page-card-body .login-error-banner,
+section.for-email-login .page-card .page-card-body .login-success-banner,
+section.for-forgot .page-card .page-card-body .login-error-banner,
+section.for-forgot .page-card .page-card-body .login-success-banner,
+section.for-login-with-email-link .page-card .page-card-body .login-error-banner,
+section.for-login-with-email-link .page-card .page-card-body .login-success-banner,
+section.for-signup .page-card .page-card-body .login-error-banner,
+section.for-signup .page-card .page-card-body .login-success-banner,
+section.for-reset-password .page-card .page-card-body .login-error-banner,
+section.for-reset-password .page-card .page-card-body .login-success-banner {
+  position: relative;
+  padding: 9px 12px 9px 14px;
+  border-radius: 10px;
+  line-height: 1.45;
+}
+section.for-login .page-card .page-card-body .login-error-banner::before,
+section.for-login .page-card .page-card-body .login-success-banner::before,
+section.for-email-login .page-card .page-card-body .login-error-banner::before,
+section.for-email-login .page-card .page-card-body .login-success-banner::before,
+section.for-forgot .page-card .page-card-body .login-error-banner::before,
+section.for-forgot .page-card .page-card-body .login-success-banner::before,
+section.for-login-with-email-link .page-card .page-card-body .login-error-banner::before,
+section.for-login-with-email-link .page-card .page-card-body .login-success-banner::before,
+section.for-signup .page-card .page-card-body .login-error-banner::before,
+section.for-signup .page-card .page-card-body .login-success-banner::before,
+section.for-reset-password .page-card .page-card-body .login-error-banner::before,
+section.for-reset-password .page-card .page-card-body .login-success-banner::before {
+  content: "";
+  position: absolute;
+  inset: 7px auto 7px 0;
+  width: 3px;
+  border-radius: 999px;
+  background: currentColor;
+  opacity: 0.6;
+}
+section.for-login .page-card .page-card-actions .btn-login-option,
+section.for-email-login .page-card .page-card-actions .btn-login-option,
+section.for-forgot .page-card .page-card-actions .btn-login-option,
+section.for-login-with-email-link .page-card .page-card-actions .btn-login-option,
+section.for-signup .page-card .page-card-actions .btn-login-option,
+section.for-reset-password .page-card .page-card-actions .btn-login-option {
+  height: 40px;
+  border-radius: 11px;
+  font-weight: 500;
+  background: var(--aurora-login-canvas);
+  color: var(--aurora-login-ink);
+  box-shadow: inset 0 0 0 1px var(--aurora-login-line);
+  transition:
+    background-color 200ms var(--aurora-ease),
+    box-shadow 200ms var(--aurora-ease),
+    transform 160ms var(--aurora-ease-out);
+}
+section.for-login .page-card .page-card-actions .btn-login-option:hover,
+section.for-email-login .page-card .page-card-actions .btn-login-option:hover,
+section.for-forgot .page-card .page-card-actions .btn-login-option:hover,
+section.for-login-with-email-link .page-card .page-card-actions .btn-login-option:hover,
+section.for-signup .page-card .page-card-actions .btn-login-option:hover,
+section.for-reset-password .page-card .page-card-actions .btn-login-option:hover {
+  background: var(--aurora-softer);
+  box-shadow: inset 0 0 0 1px var(--aurora-300);
+  transform: translateY(-1px);
+}
+section.for-login .page-card .forgot-password-message > *,
+section.for-login .page-card .resend-link a,
+section.for-email-login .page-card .forgot-password-message > *,
+section.for-email-login .page-card .resend-link a,
+section.for-forgot .page-card .forgot-password-message > *,
+section.for-forgot .page-card .resend-link a,
+section.for-login-with-email-link .page-card .forgot-password-message > *,
+section.for-login-with-email-link .page-card .resend-link a,
+section.for-signup .page-card .forgot-password-message > *,
+section.for-signup .page-card .resend-link a,
+section.for-reset-password .page-card .forgot-password-message > *,
+section.for-reset-password .page-card .resend-link a {
+  color: var(--aurora-600);
+  text-decoration: none;
+  transition: color 160ms var(--aurora-ease);
+}
+section.for-login .page-card .forgot-password-message > *:hover,
+section.for-email-login .page-card .forgot-password-message > *:hover,
+section.for-forgot .page-card .forgot-password-message > *:hover,
+section.for-login-with-email-link .page-card .forgot-password-message > *:hover,
+section.for-signup .page-card .forgot-password-message > *:hover,
+section.for-reset-password .page-card .forgot-password-message > *:hover {
+  color: var(--aurora-700);
+  text-decoration: underline;
+}
+section.for-login .password-strength-container .password-strength-bar-track,
+section.for-email-login .password-strength-container .password-strength-bar-track,
+section.for-forgot .password-strength-container .password-strength-bar-track,
+section.for-login-with-email-link .password-strength-container .password-strength-bar-track,
+section.for-signup .password-strength-container .password-strength-bar-track,
+section.for-reset-password .password-strength-container .password-strength-bar-track {
+  height: 5px;
+  border-radius: 999px;
+  background: var(--aurora-login-canvas);
+  box-shadow: inset 0 0 0 1px var(--aurora-login-line);
+}
+section.for-login .password-strength-container .password-strength-bar-fill,
+section.for-email-login .password-strength-container .password-strength-bar-fill,
+section.for-forgot .password-strength-container .password-strength-bar-fill,
+section.for-login-with-email-link .password-strength-container .password-strength-bar-fill,
+section.for-signup .password-strength-container .password-strength-bar-fill,
+section.for-reset-password .password-strength-container .password-strength-bar-fill {
+  border-radius: 999px;
+  transition: width 320ms var(--aurora-ease-out), background-color 200ms var(--aurora-ease);
+}
+section.for-login .invalid-login,
+section.for-email-login .invalid-login,
+section.for-forgot .invalid-login,
+section.for-login-with-email-link .invalid-login,
+section.for-signup .invalid-login,
+section.for-reset-password .invalid-login {
+  animation: aurora-login-shake 420ms var(--aurora-ease);
+}
+section.for-login .sign-up-message,
+section.for-email-login .sign-up-message,
+section.for-forgot .sign-up-message,
+section.for-login-with-email-link .sign-up-message,
+section.for-signup .sign-up-message,
+section.for-reset-password .sign-up-message {
+  color: var(--aurora-login-muted);
+}
+section.for-login .sign-up-message a,
+section.for-email-login .sign-up-message a,
+section.for-forgot .sign-up-message a,
+section.for-login-with-email-link .sign-up-message a,
+section.for-signup .sign-up-message a,
+section.for-reset-password .sign-up-message a {
+  color: var(--aurora-600);
+  text-decoration: none;
+}
+section.for-login .sign-up-message a:hover,
+section.for-email-login .sign-up-message a:hover,
+section.for-forgot .sign-up-message a:hover,
+section.for-login-with-email-link .sign-up-message a:hover,
+section.for-signup .sign-up-message a:hover,
+section.for-reset-password .sign-up-message a:hover {
+  text-decoration: underline;
+}
+section:is(.for-login, .for-email-login, .for-forgot, .for-login-with-email-link, .for-signup, .for-reset-password) .page-card .page-card-actions :is(.btn-login, .btn-ldap-login, .btn-signup:not(:disabled)),
+section:is(.for-login, .for-email-login, .for-forgot, .for-login-with-email-link, .for-signup, .for-reset-password) .page-card .page-card-actions :is(.btn-login, .btn-ldap-login, .btn-signup:not(:disabled)):is(:hover, :focus, :focus-visible, :active, :disabled) {
+  background-color: transparent;
+  background-image: var(--aurora-gradient);
+  background-size: 160% 160%;
+  color: #fff;
+  border: none;
+  box-shadow: 0 2px 5px -1px hsl(var(--aurora-shadow-color)/0.2), 0 8px 18px -8px var(--aurora-glow);
+}
+section:is(.for-login, .for-email-login, .for-forgot, .for-login-with-email-link, .for-signup, .for-reset-password) .page-card .page-card-actions :is(.btn-login, .btn-ldap-login, .btn-signup:not(:disabled)) {
+  height: 42px;
+  padding: 0 14px;
+  border-radius: 11px;
+  font-weight: 500;
+  background-position: 0% 50%;
+  transition:
+    background-position 480ms var(--aurora-ease),
+    transform 120ms var(--aurora-ease-out),
+    box-shadow 200ms var(--aurora-ease);
+}
+section:is(.for-login, .for-email-login, .for-forgot, .for-login-with-email-link, .for-signup, .for-reset-password) .page-card .page-card-actions :is(.btn-login, .btn-ldap-login, .btn-signup:not(:disabled)):is(:hover, :focus-visible) {
+  background-position: 100% 50%;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 7px -1px hsl(var(--aurora-shadow-color)/0.22), 0 14px 26px -10px var(--aurora-glow);
+}
+section:is(.for-login, .for-email-login, .for-forgot, .for-login-with-email-link, .for-signup, .for-reset-password) .page-card .page-card-actions :is(.btn-login, .btn-ldap-login, .btn-signup:not(:disabled)):active {
+  transform: translateY(0) scale(0.985);
+}
+section:is(.for-login, .for-email-login, .for-forgot, .for-login-with-email-link, .for-signup, .for-reset-password) .page-card .page-card-actions .btn-login:disabled {
+  opacity: 0.65;
+}
+html body .splash {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: none;
+  background-color: var(--aurora-login-canvas);
+  background-image: radial-gradient(60vmax 60vmax at 50% 50%, hsl(var(--aurora-h) var(--aurora-s) var(--aurora-l)/0.3), transparent 70%), radial-gradient(90vmax 70vmax at 12% 108%, hsl(var(--aurora-alt-h), 78%, 62%, 0.22), transparent 64%);
+  animation: aurora-splash-bloom 620ms var(--aurora-ease-out) both;
+}
+html body .splash img {
+  width: auto;
+  max-width: 168px;
+  filter: drop-shadow(0 12px 34px var(--aurora-glow));
+  animation: aurora-splash-mark 760ms var(--aurora-ease-spring) both;
+}
+html body .splash::after {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 2px solid var(--aurora-500);
+  animation: aurora-splash-ring 900ms var(--aurora-ease-out) infinite;
+}
+@keyframes aurora-splash-bloom {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes aurora-splash-mark {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes aurora-splash-ring {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.6);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.9);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html body .splash,
+  html body .splash img,
+  html body .splash::after {
+    animation: none;
+  }
+  html body .splash::after {
+    display: none;
+  }
+}
+@keyframes aurora-login-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes aurora-login-shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  22% {
+    transform: translateX(-5px);
+  }
+  55% {
+    transform: translateX(5px);
+  }
+  80% {
+    transform: translateX(-3px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  section.for-login,
+  section.for-email-login,
+  section.for-forgot,
+  section.for-login-with-email-link,
+  section.for-signup,
+  section.for-reset-password .page-card {
+    animation: none;
+  }
+}
+@media (max-width: 575px) {
+  section.for-login .page-card,
+  section.for-email-login .page-card,
+  section.for-forgot .page-card,
+  section.for-login-with-email-link .page-card,
+  section.for-signup .page-card,
+  section.for-reset-password .page-card {
+    max-width: 100%;
+    min-height: 100svh;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 56px 26px 32px;
+    background: var(--aurora-login-surface);
+  }
+  section.for-login .page-card::before,
+  section.for-email-login .page-card::before,
+  section.for-forgot .page-card::before,
+  section.for-login-with-email-link .page-card::before,
+  section.for-signup .page-card::before,
+  section.for-reset-password .page-card::before {
+    display: none;
+  }
+  html body .page-content-wrapper {
+    min-height: 100svh;
+  }
+}
+/*# sourceMappingURL=aurora_web.bundle.DR5QAFR4.css.map */
