@@ -32,7 +32,7 @@
 	background-color: var(--card-bg);
 	border: 1px solid var(--border-color);
 	border-radius: var(--border-radius-lg);
-	box-shadow: var(--shadow-xs);
+	/*box-shadow: var(--shadow-xs);*/
 	overflow: hidden;
 	transition: transform var(--aurora-dur-3) var(--aurora-ease-out),
 		box-shadow var(--aurora-dur-3) var(--aurora-ease),
@@ -45,18 +45,18 @@
 	inset: 0;
 	pointer-events: none;
 	opacity: 0;
-	background: radial-gradient(
+	/*background: radial-gradient(
 		380px circle at var(--aurora-mx, 50%) var(--aurora-my, 0%),
 		var(--aurora-soft),
 		transparent 62%
-	);
-	transition: opacity var(--aurora-dur-3) var(--aurora-ease);
+	);*/
+	/*transition: opacity var(--aurora-dur-3) var(--aurora-ease);*/
 }
 
 .widget:hover {
-	transform: translateY(-3px);
+	/*transform: translateY(-3px);
 	box-shadow: var(--aurora-lift);
-	border-color: var(--aurora-ring);
+	border-color: var(--aurora-ring);*/
 }
 
 .widget:hover::after {

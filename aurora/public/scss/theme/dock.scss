@@ -1,0 +1,32 @@
+/* =============================================================================
+   Aurora — modals, toasts, tooltips and loading states
+   ========================================================================== */
+
+/* -----------------------------------------------------------------------------
+   Dialogs
+   -------------------------------------------------------------------------- */
+.dock {
+  background: var(--surface-aurora-1);
+}
+.dock-item.active {
+  background: var(--dock-tile-active);
+  color: var(--dock-ink-strong);
+}
+
+body.dock-pinned .dock {
+  width: calc(var(--dock-width) + 1px);
+  position: relative;
+  top: auto;
+  right: auto;
+  transform: none;
+  transition: none;
+  flex: 0 0 auto;
+  height: 100vh;
+  height: 100dvh;
+  max-height: none;
+  border-radius: 0;
+  box-shadow: none;
+  border-left: 1px solid var(--border-color);
+  padding-top: calc(var(--spacing) * 2);
+  overflow: hidden;
+}

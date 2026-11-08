@@ -87,7 +87,7 @@
 
 /* editable cells */
 .grid-static-col {
-	border-radius: var(--border-radius-tiny);
+	/*border-radius: var(--border-radius-tiny);*/
 	transition: background-color var(--aurora-dur-1) var(--aurora-ease),
 		box-shadow var(--aurora-dur-1) var(--aurora-ease);
 }
@@ -133,8 +133,8 @@
 /* footer toolbar */
 .grid-footer,
 .grid-footer-toolbar {
-	background-color: var(--subtle-accent);
-	border-top: 1px solid var(--border-color);
+/*	background-color: var(--subtle-accent);
+	border-top: 1px solid var(--border-color);*/
 }
 
 .grid-add-row,
@@ -145,8 +145,8 @@
 }
 
 .grid-add-row:hover {
-	transform: translateX(2px);
-	color: var(--aurora-600);
+/*	transform: translateX(2px);
+	color: var(--aurora-600);*/
 }
 
 .grid-empty {

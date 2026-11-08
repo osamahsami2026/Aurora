@@ -7,27 +7,50 @@
    ========================================================================== */
 
 .frappe-list {
-	border-radius: var(--border-radius-lg);
+	border-radius: var(--border-radius-lg1);
 }
 
 /* --- rows ---------------------------------------------------------------- */
 .frappe-list .list-row-container {
-	border-bottom: 1px solid var(--border-color);
+	/*border-bottom: 1px solid var(--border-color);*/
 	transition: background-color var(--aurora-dur-2) var(--aurora-ease);
 }
 
-.frappe-list .list-row-container:last-child {
-	border-bottom: none;
+.frappe-list .list-row-container:hover {
+	background-color: var(--highlight-color);
+}
+.frappe-list .list-row-container:hover .level-right {
+  background-color: var(--highlight-color);
+}
+
+/* header container: no hover wash behind the sticky header */
+.frappe-list .list-row-container:has(> .list-row-head):hover {
+	background-color: transparent;
+}
+
+/* the header's right-hand column keeps one flat tone in every hover state */
+.frappe-list .list-row-head .level-right,
+.frappe-list .list-row-head .level-right:hover,
+.frappe-list .list-row-head:hover .level-right {
+	background: var(--subtle-accent);
+	border-radius: var(--border-radius-lg1) var(--border-radius-lg1) 0 0;
+	border-right: none;
+	border-bottom: 1px solid var(--border-color);
 }
 
 .frappe-list .list-row {
 	position: relative;
-	border-bottom: none; /* the container owns the separator now */
-	border-radius: var(--border-radius-sm);
+	border-bottom: 1px solid var(--border-color);
+	/*border-radius: var(--border-radius-sm);*/
 	min-height: var(--aurora-row-h);
 	transition: background-color var(--aurora-dur-2) var(--aurora-ease),
 		transform var(--aurora-dur-2) var(--aurora-ease-out),
 		color var(--aurora-dur-2) var(--aurora-ease);
+}
+
+/* keep the sticky right column in sync with the row background */
+.frappe-list .list-row .level-right {
+	transition: background-color var(--aurora-dur-2) var(--aurora-ease);
 }
 
 /* core paints a grey smear behind the right-hand column on hover */
@@ -55,11 +78,6 @@
 	transform: scaleY(1);
 }
 
-.frappe-list .list-row-container:hover .list-row {
-	background-color: var(--aurora-softer);
-	/*transform: translateX(2px);*/
-}
-
 .frappe-list .list-row-container:hover .list-subject a,
 .frappe-list .list-row-container:hover .list-subject .level-item.bold a {
 	color: var(--aurora-700);
@@ -71,9 +89,38 @@
 }
 
 /* --- selection ----------------------------------------------------------- */
+/* Paint the container, not the inner row, so the 7px inline padding is
+   included exactly like :hover. */
+.frappe-list .list-row-container:has(input.list-row-checkbox:checked),
+.frappe-list .list-row-container.selected-row {
+	background: var(--aurora-list-selected-surface);
+}
+
+/* the sticky right column paints the same surface and its 2px separator
+   is hidden so the fill stays continuous */
+.frappe-list .list-row-container:has(input.list-row-checkbox:checked) .list-row .level-right,
+.frappe-list .list-row-container.selected-row .list-row .level-right {
+	background: var(--aurora-list-selected-surface);
+	border-left-color: transparent;
+}
+
+/* selected rows darken slightly on hover */
+.frappe-list .list-row-container:has(input.list-row-checkbox:checked):hover,
+.frappe-list .list-row-container.selected-row:hover {
+	background: var(--aurora-list-selected-hover-surface);
+}
+
+.frappe-list .list-row-container:has(input.list-row-checkbox:checked):hover .list-row .level-right,
+.frappe-list .list-row-container.selected-row:hover .list-row .level-right {
+	background: var(--aurora-list-selected-hover-surface);
+}
+
+/* let the container fill show through, and beat core's :focus wash */
 .frappe-list .list-row-container:has(input.list-row-checkbox:checked) .list-row,
-.frappe-list .list-row-container.selected-row .list-row {
-	background: var(--aurora-gradient-soft);
+.frappe-list .list-row-container.selected-row .list-row,
+.frappe-list .list-row-container:has(input.list-row-checkbox:checked):focus .list-row,
+.frappe-list .list-row-container.selected-row:focus .list-row {
+	background: transparent;
 }
 
 .frappe-list .list-row-container:has(input.list-row-checkbox:checked) .list-row::before {
@@ -90,21 +137,15 @@
 .frappe-list .list-row-head {
 	background: var(--subtle-accent);
 	border-bottom: 1px solid var(--border-color);
-	border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+	border-radius: var(--border-radius-lg1) var(--border-radius-lg1) 0 0;
 	position: sticky;
 	top: 0;
 	z-index: 3;
 	-webkit-backdrop-filter: saturate(180%) blur(12px);
 	backdrop-filter: saturate(180%) blur(12px);
 }
-
 .frappe-list .list-row-head .list-row::before {
 	display: none;
-}
-
-.frappe-list .list-row-head:hover .list-row {
-	transform: none;
-	background: transparent;
 }
 
 /* sortable column headers */

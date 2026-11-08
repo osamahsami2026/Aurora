@@ -35,6 +35,7 @@
 @import "./theme/cards";
 @import "./theme/charts";
 @import "./theme/desktop";
+@import "./theme/dock";
 
 /* refinement pass over the components above */
 @import "./theme/depth";
@@ -51,3 +52,9 @@
 
 /* last: rules that exist purely to out-specify a longer core selector */
 @import "./theme/overrides";
+
+
+@import "./theme/button";
+@import "./theme/colors";
+@import "./theme/menu";
+@import "./theme/tab_buttons";

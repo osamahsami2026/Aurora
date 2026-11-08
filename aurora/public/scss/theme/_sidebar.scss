@@ -6,7 +6,7 @@
    ========================================================================== */
 
 .body-sidebar {
-	background: var(--sidebar-color);
+	background: var(--aurora-surface);
 	-webkit-backdrop-filter: saturate(180%) blur(20px);
 	backdrop-filter: saturate(180%) blur(20px);
 	border-right: 1px solid var(--border-color);
@@ -169,7 +169,10 @@
    would render as a tall rectangle behind a 32px logo. The collapsed case is
    handled in _shell.scss, where the header becomes a square target. */
 .body-sidebar-container.expanded .sidebar-header:hover {
-	background: var(--aurora-soft);
+	background: var(--surface-aurora-2);
+}
+.shell-header.active-sidebar {
+  background: var(--surface-aurora-2);
 }
 
 .sidebar-header .sidebar-item-icon {

@@ -52,12 +52,16 @@
 .form-tabs-list .form-tabs .nav-item .nav-link,
 .nav-tabs .nav-link {
 	position: relative;
-	border: none !important;
+	border: 0px;
 	border-radius: var(--border-radius-sm);
 	padding: 8px 12px;
 	margin: 0 3px;
 	transition: color var(--aurora-dur-2) var(--aurora-ease),
 		background-color var(--aurora-dur-2) var(--aurora-ease);
+}
+.form-tabs-list .form-tabs .nav-item .nav-link.active {
+
+  border-bottom: 1px solid var(--aurora-nocolor);
 }
 
 /* the selected tab carries the tint, not just the underline */
@@ -123,7 +127,7 @@
 }
 
 .grid-add-row:hover {
-	transform: translateX(2px);
+	/*transform: translateX(2px);*/
 }
 
 /* --- form sidebar -------------------------------------------------------- */
@@ -147,8 +151,8 @@
 }
 
 .form-links .document-link:hover {
-	transform: translateY(-2px);
-	box-shadow: var(--aurora-lift);
+	/*transform: translateY(-2px);*/
+	/*box-shadow: var(--aurora-lift);*/
 	border-color: var(--aurora-ring);
 }
 
@@ -189,8 +193,8 @@
 }
 
 .new-timeline .timeline-content:hover {
-	box-shadow: var(--shadow-base);
-	border-color: var(--aurora-ring);
+	/*box-shadow: var(--shadow-base);
+	border-color: var(--aurora-ring);*/
 }
 
 /* --- comment box --------------------------------------------------------- */

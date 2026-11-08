@@ -26,11 +26,43 @@
 	--aurora-300: hsl(var(--aurora-h) var(--aurora-s) 80%);
 	--aurora-400: hsl(var(--aurora-h) var(--aurora-s) 70%);
 	--aurora-500: hsl(var(--aurora-h) var(--aurora-s) var(--aurora-l));
+	--aurora-550: hsl(var(--aurora-h) var(--aurora-s) calc(var(--aurora-l) - 6%));
 	--aurora-600: hsl(var(--aurora-h) var(--aurora-s) calc(var(--aurora-l) - 8%));
 	--aurora-700: hsl(var(--aurora-h) var(--aurora-s) calc(var(--aurora-l) - 16%));
 	--aurora-800: hsl(var(--aurora-h) var(--aurora-s) calc(var(--aurora-l) - 26%));
 	--aurora-900: hsl(var(--aurora-h) var(--aurora-s) calc(var(--aurora-l) - 34%));
 
+	/* Surface ramp — 1 = deepest surface / background, 10 = highest-contrast
+	   surface (solid buttons). Fixed S/L per step so only the hue follows
+	   --aurora-h; saturation rises toward the light end to keep the tint
+	   visible. The dark theme reverses this ramp (see below). */
+	--surface-aurora-1: hsl(var(--aurora-h) 40% 97%);
+	--surface-aurora-2: hsl(var(--aurora-h) 35% 94%);
+	--surface-aurora-3: hsl(var(--aurora-h) 30% 90%);
+	--surface-aurora-4: hsl(var(--aurora-h) 26% 85%);
+	--surface-aurora-5: hsl(var(--aurora-h) 23% 79%);
+	--surface-aurora-6: hsl(var(--aurora-h) 20% 72%);
+	--surface-aurora-7: hsl(var(--aurora-h) 18% 64%);
+	--surface-aurora-8: hsl(var(--aurora-h) 16% 55%);
+	--surface-aurora-9: hsl(var(--aurora-h) 15% 46%);
+	--surface-aurora-10: hsl(var(--aurora-h) 14% 37%);
+
+	/* primary ramp — 1 = the accent (aurora-500), descending to near-black.
+	   Saturation is scaled down as it darkens so the last steps read as a
+	   tinted grey rather than a saturated colour. */
+	--aurora-primary-1: var(--aurora-500);
+	--aurora-primary-2: hsl(var(--aurora-h) calc(var(--aurora-s) * 0.9) calc(var(--aurora-l) - 5%));
+	--aurora-primary-3: hsl(var(--aurora-h) calc(var(--aurora-s) * 0.8) calc(var(--aurora-l) - 10%));
+	--aurora-primary-4: hsl(var(--aurora-h) calc(var(--aurora-s) * 0.7) calc(var(--aurora-l) - 16%));
+	--aurora-primary-5: hsl(var(--aurora-h) calc(var(--aurora-s) * 0.6) calc(var(--aurora-l) - 22%));
+	--aurora-primary-6: hsl(var(--aurora-h) calc(var(--aurora-s) * 0.5) calc(var(--aurora-l) - 29%));
+	--aurora-primary-7: hsl(var(--aurora-h) calc(var(--aurora-s) * 0.4) calc(var(--aurora-l) - 36%));
+	--aurora-primary-8: hsl(var(--aurora-h) calc(var(--aurora-s) * 0.3) calc(var(--aurora-l) - 43%));
+	--aurora-primary-9: hsl(var(--aurora-h) calc(var(--aurora-s) * 0.2) calc(var(--aurora-l) - 50%));
+	--aurora-primary-10: hsl(var(--aurora-h) calc(var(--aurora-s) * 0.1) calc(var(--aurora-l) - 56%));
+
+	--shadow-primary: 0 16px 8px rgba(31, 31, 31, 0.0117647059), 0 12px 6px rgba(31, 31, 31, 0.0392156863), 0 4px 4px rgba(31, 31, 31, 0.0705882353), 0 1.5px 3px rgba(31, 31, 31, 0.0784313725), 0 0 0 0px var(--btn-primary), inset 0 1px 3px rgba(255, 255, 255, 0.3019607843);
+	
 	--aurora: var(--aurora-500);
 	--aurora-soft: hsl(var(--aurora-h) var(--aurora-s) var(--aurora-l) / 0.12);
 	--aurora-softer: hsl(var(--aurora-h) var(--aurora-s) var(--aurora-l) / 0.06);
@@ -87,6 +119,7 @@
 	--border-radius: calc(10px * var(--aurora-radius-scale));
 	--border-radius-md: calc(12px * var(--aurora-radius-scale));
 	--border-radius-lg: calc(16px * var(--aurora-radius-scale));
+	--border-radius-lg1: calc(14px * var(--aurora-radius-scale));
 	--border-radius-xl: calc(20px * var(--aurora-radius-scale));
 	--border-radius-2xl: calc(26px * var(--aurora-radius-scale));
 	--border-radius-full: 999px;
@@ -136,7 +169,7 @@
 	--aurora-glass: hsl(0 0% 100% / 0.72);
 	--aurora-glass-border: hsl(0 0% 100% / 0.6);
 	--aurora-scrim: hsl(var(--aurora-h) 30% 12% / 0.42);
-	--aurora-page-head: hsl(var(--aurora-h) 40% 96% / 0.72);
+	--aurora-page-head: hsl(var(--bg-color) / 0.72);
 
 }
 
@@ -164,10 +197,22 @@
 	--subtle-fg: hsl(var(--aurora-h) 34% 95%);
 	--fg-hover-color: var(--aurora-softer);
 	--highlight-color: hsl(var(--aurora-h) 60% 98%);
+	/* list selection surfaces: the same flat tint on the row container and
+	   the sticky right column, with a slightly darker hover state */
+	--aurora-list-selected-surface: linear-gradient(
+		var(--aurora-soft),
+		var(--aurora-soft)
+	), var(--bg-color);
+	--aurora-list-selected-hover-surface: linear-gradient(
+		var(--aurora-soft),
+		var(--aurora-soft)
+	), color-mix(in srgb, black 5%, var(--bg-color));
 	--control-bg: hsl(var(--aurora-h) 30% 96%);
-	--control-bg-on-gray: hsl(var(--aurora-h) 30% 93%);
+	--control-bg-on-aurora: hsl(var(--aurora-h) 30% 93%);
 	--awesomebar-focus-bg: var(--aurora-surface);
 	--awesomplete-hover-bg: var(--aurora-soft);
+	--dock-bg: hsl(var(--aurora-h) var(--aurora-s) 97%);
+    --dock-tile-active: hsl(var(--aurora-h) var(--aurora-s) var(--aurora-l) / 0.12);
 
 	--border-color: var(--aurora-hairline);
 	--dark-border-color: var(--aurora-hairline-strong);
@@ -188,7 +233,7 @@
 	--sidebar-select-color: var(--aurora-soft);
 	--divider-color: var(--aurora-hairline);
 
-	--scrollbar-thumb-color: hsl(var(--aurora-h) 20% 78%);
+	--scrollbar-thumb-color: hsl(var(--aurora-h) 20% 70%);
 	--scrollbar-track-color: transparent;
 
 	--progress-bar-bg: var(--aurora-500);
@@ -218,6 +263,20 @@
 
 	--sidebar-color: hsl(var(--aurora-h) 40% 2.2%);
 
+	/* surface ramp — منعكس: 1 = الخلفية، 10 = أعلى تباين */
+	--surface-aurora-1: hsl(var(--aurora-h) 16% 18%);
+	--surface-aurora-2: hsl(var(--aurora-h) 16% 20.5%);
+	--surface-aurora-3: hsl(var(--aurora-h) 15.5% 23%);
+	--surface-aurora-4: hsl(var(--aurora-h) 15.5% 25.5%);
+	--surface-aurora-5: hsl(var(--aurora-h) 15% 29%);
+	--surface-aurora-6: hsl(var(--aurora-h) 14.5% 33%);
+	--surface-aurora-7: hsl(var(--aurora-h) 14% 38%);
+	--surface-aurora-8: hsl(var(--aurora-h) 13.5% 45%);
+	--surface-aurora-9: hsl(var(--aurora-h) 13% 54%);
+	--surface-aurora-10: hsl(var(--aurora-h) 12.5% 63%);
+
+	
+
 	--bg-color: var(--aurora-canvas);
 	--fg-color: var(--aurora-surface);
 	--card-bg: var(--aurora-surface);
@@ -232,8 +291,16 @@
 	--subtle-fg: hsl(var(--aurora-h) 16% 18%);
 	--fg-hover-color: hsl(var(--aurora-h) 20% 18%);
 	--highlight-color: hsl(var(--aurora-h) 20% 16%);
+	--aurora-list-selected-surface: linear-gradient(
+		var(--aurora-soft),
+		var(--aurora-soft)
+	), var(--bg-color);
+	--aurora-list-selected-hover-surface: linear-gradient(
+		var(--aurora-soft),
+		var(--aurora-soft)
+	), color-mix(in srgb, black 10%, var(--bg-color));
 	--control-bg: hsl(var(--aurora-h) 16% 16%);
-	--control-bg-on-gray: hsl(var(--aurora-h) 16% 20%);
+	--control-bg-on-aurora: hsl(var(--aurora-h) 16% 20%);
 	--awesomebar-focus-bg: var(--aurora-surface-2);
 
 	--border-color: var(--aurora-hairline);
@@ -250,7 +317,7 @@
 	--sidebar-border-color: transparent;
 	--divider-color: var(--aurora-hairline);
 
-	--scrollbar-thumb-color: hsl(var(--aurora-h) 14% 30%);
+	--scrollbar-thumb-color: hsl(var(--aurora-h) 14% 34%);
 
 	--text-color: hsl(var(--aurora-h) 14% 88%);
 	--heading-color: hsl(var(--aurora-h) 20% 96%);

@@ -66,7 +66,7 @@
 	border-radius: var(--border-radius-lg);
 	border: 1px solid var(--border-color);
 	background-color: var(--card-bg);
-	box-shadow: var(--shadow-xs);
+	/*box-shadow: var(--shadow-xs);*/
 }
 
 .widget.onboarding-widget-box {
@@ -93,7 +93,7 @@
 .widget.widget-shadow:hover,
 .widget.quick-list-widget-box:hover {
 	border-color: var(--aurora-ring);
-	box-shadow: var(--aurora-lift);
+	/*box-shadow: var(--aurora-lift);*/
 }
 
 /* core: .widget .widget-head .widget-label .widget-title (color, letter-spacing) */

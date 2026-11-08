@@ -24,8 +24,8 @@
 	background-color: var(--card-bg);
 	border: 1px solid var(--border-color);
 	border-radius: var(--border-radius-lg);
-	box-shadow: 0 1px 2px hsl(var(--aurora-shadow-color) / 0.05),
-		0 6px 16px -12px hsl(var(--aurora-shadow-color) / 0.18);
+	/*box-shadow: 0 1px 2px hsl(var(--aurora-shadow-color) / 0.05),
+		0 6px 16px -12px hsl(var(--aurora-shadow-color) / 0.18);*/
 	overflow: hidden;
 	transition: transform var(--aurora-dur-3) var(--aurora-ease-out),
 		box-shadow var(--aurora-dur-3) var(--aurora-ease),
@@ -226,9 +226,9 @@
 }
 
 .form-links .document-link:hover {
-	transform: translateY(-2px);
+	/*transform: translateY(-2px);*/
 	border-color: var(--aurora-ring);
-	box-shadow: var(--aurora-lift);
+	/*box-shadow: var(--aurora-lift);*/
 }
 
 /* -----------------------------------------------------------------------------
@@ -348,8 +348,8 @@ html[data-aurora-gradients="1"] .widget.number-widget-box .widget-body .number {
 }
 
 .widget.shortcut-widget-box:hover {
-	transform: translateY(-3px);
-	border-color: var(--aurora-ring);
+	/*transform: translateY(-3px);*/
+	/*border-color: var(--aurora-ring);*/
 }
 
 /* the count pill pops when the tile is hovered, so the number reads as the
